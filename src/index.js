@@ -3,7 +3,9 @@
  * @type {createApplication}
  */
 require('../src/models/User')
+
 const express = require('express');
+const requireAuth=require('./middlewares/requireAuth');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
 const bodyParser = require('body-parser');
@@ -30,9 +32,9 @@ mongoose.connection.on('error', err => {
      console.error('Error connecting to mongo', err);
 });
 
-app.get('/',(req,res)=>{
+app.get('/',requireAuth,(req,res)=>{
      res.send({
-          data:"Contact Express"
+          email:req.user.email
      })
 })
 
