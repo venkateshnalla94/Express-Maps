@@ -3,11 +3,12 @@
  * @type {createApplication}
  */
 require('../src/models/User')
-
+require('../src/models/Track')
 const express = require('express');
 const requireAuth=require('./middlewares/requireAuth');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
+const trackRoutes = require('./routes/trackRoutes');
 const bodyParser = require('body-parser');
 const app = express();
 
@@ -17,6 +18,7 @@ const app = express();
  */
 app.use(bodyParser.json());
 app.use(authRoutes);
+app.use(trackRoutes);
 
 
 const mongoUri = "mongodb+srv://venkateshnalla94:Venky@007@cluster0.s5ivr.mongodb.net/<dbname>?retryWrites=true&w=majority";

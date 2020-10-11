@@ -12,8 +12,8 @@ const userScheme=new mongoose.Schema({
      }
 },{
      timestamps: true
+     
 });
-
 
 /**
  * before saving the password to the database
