@@ -46,7 +46,6 @@ router.post('/signin',async (req,res)=>{
           res.send({JWTToken:token})
      }catch (err) {
           res.status(422).send({Error:"In correct Password"})
-          
      }
 })
 
